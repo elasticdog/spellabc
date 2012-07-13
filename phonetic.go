@@ -93,10 +93,10 @@ func usage() {
 	fmt.Fprintf(os.Stderr, "Usage: %s STRING ...\n", os.Args[0])
 }
 
-// encodeChar converts a character into its spelling alphabet code word
+// encode converts a character into its spelling alphabet code word
 // representation (if it is known). For letters, it returns
 // a lowercase/uppercase code word based on the capitalization.
-func encodeChar(char rune) string {
+func encode(char rune) string {
 	word, ok := alphabet[unicode.ToLower(char)]
 	if !ok {
 		return string(char)
@@ -117,9 +117,9 @@ func encodeChar(char rune) string {
 func printPhonetic(input string) {
 	runes := []rune(input)
 	for _, char := range runes[:len(runes)-1] {
-		fmt.Printf("%s ", encodeChar(char))
+		fmt.Printf("%s ", encode(char))
 	}
-	fmt.Printf("%s\n", encodeChar(runes[len(runes)-1]))
+	fmt.Printf("%s\n", encode(runes[len(runes)-1]))
 }
 
 func main() {
