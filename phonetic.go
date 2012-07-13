@@ -90,7 +90,7 @@ var alphabet = map[rune]string{
 
 // usage prints out the basic help message to STDERR.
 func usage() {
-	fmt.Fprintf(os.Stderr, "Usage: %s STRING ...", os.Args[0])
+	fmt.Fprintf(os.Stderr, "Usage: %s STRING ...\n", os.Args[0])
 }
 
 // encodeChar converts a character into its spelling alphabet code word
