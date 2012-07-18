@@ -10,10 +10,21 @@ package main
 
 import (
 	"fmt"
+	"github.com/gaal/go-options/options"
 	"os"
 	"strings"
 	"unicode"
 )
+
+// define the options spec for command-line flags
+const mySpec = `
+phonetic -- convert characters into spelling alphabet code words
+
+Usage: phonetic [OPTIONS] STRING...
+--
+v,verbose  include input characters along with output
+h,help     display this help message
+`
 
 // alphabet is a map of characters and their associated code words
 var alphabet = map[rune]string{
@@ -88,11 +99,6 @@ var alphabet = map[rune]string{
 	'~':  "Tilde",
 }
 
-// usage prints out the basic help message to STDERR.
-func usage() {
-	fmt.Fprintf(os.Stderr, "Usage: %s STRING ...\n", os.Args[0])
-}
-
 // encode converts a character into its spelling alphabet code word
 // representation (if it is known). For letters, it returns
 // a lowercase/uppercase code word based on the capitalization.
@@ -123,12 +129,21 @@ func printPhonetic(input string) {
 }
 
 func main() {
-	if len(os.Args) < 2 {
-		usage()
-		os.Exit(1)
+	spec := options.NewOptions(mySpec)
+	opt := spec.Parse(os.Args[1:])
+	nonFlags := append(opt.Extra, opt.Leftover...)
+
+	switch {
+	case opt.GetBool("help"):
+		spec.PrintUsageAndExit("")
+	case len(nonFlags) < 1:
+		spec.PrintUsageAndExit("You must supply a STRING to convert.")
 	}
 
-	for _, input := range os.Args[1:] {
+	for _, input := range nonFlags {
+		if opt.GetBool("verbose") {
+			fmt.Printf("%s  =  ", input)
+		}
 		printPhonetic(input)
 	}
 }
