@@ -1,9 +1,10 @@
 go-phonetic
 ===========
 
-A command-line utility for converting characters into their equivalent
-NATO [spelling alphabet](https://en.wikipedia.org/wiki/Spelling_alphabet)
-code words. Useful for when you have to spell things out over the phone.
+A command-line utility (written in [GoLang](http://golang.org/)) for
+converting characters into their equivalent NATO [spelling
+alphabet](https://en.wikipedia.org/wiki/Spelling_alphabet) code words.
+Useful for when you have to spell things out over the phone.
 
 go-phonetic will currently handle ASCII printable characters, and for
 letters, will return a lowercase/uppercase code word based on the
