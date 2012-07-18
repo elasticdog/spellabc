@@ -56,6 +56,23 @@ want to separate based on newlines:
     Line one  =  LIMA india november echo Space oscar november echo
     Line two  =  LIMA india november echo Space tango whiskey oscar
 
+Build Instructions
+==================
+
+Assuming that you already have Go installed and a proper `$GOROOT`
+environment variable defined, these steps should build the `phonetic`
+binary for you:
+
+    $ git clone git://github.com/elasticdog/go-phonetic.git
+    $ cd go-phonetic/
+    $ export GOPATH=$(pwd)
+    $ go get github.com/gaal/go-options/options
+    $ go build ./phonetic.go
+
+Then you can move/copy the `phonetic` binary file to wherever you like:
+
+    $ cp ./phonetic /usr/local/bin/phonetic
+
 Credits
 =======
 
