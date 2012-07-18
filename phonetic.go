@@ -3,9 +3,10 @@
 // that can be be found in the LICENSE file.
 
 /*
-  Package phonetic converts characters into their equivalent code words
-  using the NATO spelling alphabet.
+  phonetic converts characters into their equivalent code words using the
+  NATO spelling alphabet.
 */
+
 package main
 
 import (
@@ -16,7 +17,7 @@ import (
 	"unicode"
 )
 
-// define the options spec for command-line flags
+// mySpec is the options specification for processing command-line flags
 const mySpec = `
 phonetic -- convert characters into spelling alphabet code words
 
