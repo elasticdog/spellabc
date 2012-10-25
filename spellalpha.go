@@ -2,30 +2,14 @@
 // This source code is provided under the terms of the MIT License
 // that can be be found in the LICENSE file.
 
-/*
-  spelling-alphabet converts characters into their equivalent code words
-  using the NATO spelling alphabet.
-*/
-
-package main
+// Package spellalpha implements spelling alphabet code word encoding.
+package spellalpha
 
 import (
 	"fmt"
-	"github.com/gaal/go-options/options"
-	"os"
 	"strings"
 	"unicode"
 )
-
-// mySpec is the options specification for processing command-line flags
-const mySpec = `
-spelling-alphabet -- convert characters into spelling alphabet code words
-
-Usage: spelling-alphabet [OPTIONS] STRING...
---
-v,verbose  include input characters along with output
-h,help     display this help message
-`
 
 // alphabet is a map of characters and their associated code words
 var alphabet = map[rune]string{
@@ -119,32 +103,12 @@ func encode(char rune) string {
 	return word
 }
 
-// printPhonetic prints the phonetic representation of a string. Spaces
+// PrintPhonetic prints the phonetic representation of a string. Spaces
 // are always added between code words and a newline is appended.
-func printPhonetic(input string) {
+func PrintPhonetic(input string) {
 	runes := []rune(input)
 	for _, char := range runes[:len(runes)-1] {
 		fmt.Printf("%s ", encode(char))
 	}
 	fmt.Printf("%s\n", encode(runes[len(runes)-1]))
-}
-
-func main() {
-	spec := options.NewOptions(mySpec)
-	opt := spec.Parse(os.Args[1:])
-	nonFlags := append(opt.Extra, opt.Leftover...)
-
-	switch {
-	case opt.GetBool("help"):
-		spec.PrintUsageAndExit("")
-	case len(nonFlags) < 1:
-		spec.PrintUsageAndExit("You must supply a STRING to convert.")
-	}
-
-	for _, input := range nonFlags {
-		if opt.GetBool("verbose") {
-			fmt.Printf("%s  =  ", input)
-		}
-		printPhonetic(input)
-	}
 }
