@@ -2,11 +2,6 @@
 // This source code is provided under the terms of the MIT License
 // that can be be found in the LICENSE file.
 
-/*
-  spellout converts characters into their equivalent code words using the
-  NATO spelling alphabet.
-*/
-
 package main
 
 import (
