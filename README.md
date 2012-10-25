@@ -85,7 +85,7 @@ Perl module written by James FitzGibbon.
 License
 =======
 
-go-phonetic is provided under the terms of [The MIT
+go-phonetic is provided under the terms of the [MIT
 License](http://www.opensource.org/licenses/MIT).
 
-Copyright &copy; 2012, [Aaron Bull Schaefer](mailto:aaron@elasticdog.com).
+Copyright &copy; 2012 [Aaron Bull Schaefer](mailto:aaron@elasticdog.com)

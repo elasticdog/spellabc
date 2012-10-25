@@ -1,5 +1,5 @@
-// Copyright (c) 2012, Aaron Bull Schaefer. All rights reserved.
-// This source code is provided under the terms of The MIT License
+// Copyright (c) 2012 Aaron Bull Schaefer
+// This source code is provided under the terms of the MIT License
 // that can be be found in the LICENSE file.
 
 /*
