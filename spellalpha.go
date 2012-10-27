@@ -32,6 +32,9 @@ var JanAlphabet = NewEncoding(encodeJan)
 // and the ICAO spelling alphabet.
 var NatoAlphabet = NewEncoding(encodeNato)
 
+// UsFinancialAlphabet is the US Financial phonetic alphabet.
+var UsFinancialAlphabet = NewEncoding(encodeUsFinancial)
+
 // WesternUnionAlphabet is the Western Union phonetic alphabet.
 var WesternUnionAlphabet = NewEncoding(encodeWesternUnion)
 
