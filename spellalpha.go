@@ -29,6 +29,10 @@ func NewEncoding(encoder map[rune]string) *Encoding {
 // and the ICAO spelling alphabet.
 var NatoAlphabet = NewEncoding(encodeNato)
 
+// WesternUnionAlphabet is encoder alphabet for the Western Union phonetic
+// alphabet.
+var WesternUnionAlphabet = NewEncoding(encodeWesternUnion)
+
 // codeWordFor returns the spelling alphabet code word for r.
 // If r is not defined in the alphabet, returns r.
 func (enc *Encoding) codeWordFor(r rune) string {
