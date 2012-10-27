@@ -27,6 +27,10 @@ func NewEncoding(encoder map[rune]string) *Encoding {
 // JanAlphabet is the Joint Army/Navy phonetic alphabet.
 var JanAlphabet = NewEncoding(encodeJan)
 
+// LapdAlphabet is the LAPD phonetic alphabet.
+// It is also known as the APCO phonetic alphabet.
+var LapdAlphabet = NewEncoding(encodeLapd)
+
 // NatoAlphabet is the NATO phonetic alphabet.
 // It is also known as the International Radiotelephony Spelling Alphabet
 // and the ICAO spelling alphabet.
