@@ -33,10 +33,12 @@ func main() {
 		spec.PrintUsageAndExit("You must supply a STRING to convert.")
 	}
 
+	abc := spellalpha.NatoAlphabet
+
 	for _, input := range nonFlags {
 		if opt.GetBool("verbose") {
 			fmt.Printf("%s  =  ", input)
 		}
-		fmt.Println(spellalpha.Encode(input))
+		fmt.Println(abc.Encode(input))
 	}
 }

@@ -10,83 +10,29 @@ import (
 	"unicode"
 )
 
-// alphabet is a map of characters and their associated code words
-var alphabet = map[rune]string{
-	'a':  "Alpha",
-	'b':  "Bravo",
-	'c':  "Charlie",
-	'd':  "Delta",
-	'e':  "Echo",
-	'f':  "Foxtrot",
-	'g':  "Golf",
-	'h':  "Hotel",
-	'i':  "India",
-	'j':  "Juliet",
-	'k':  "Kilo",
-	'l':  "Lima",
-	'm':  "Mike",
-	'n':  "November",
-	'o':  "Oscar",
-	'p':  "Papa",
-	'q':  "Quebec",
-	'r':  "Romeo",
-	's':  "Sierra",
-	't':  "Tango",
-	'u':  "Uniform",
-	'v':  "Victor",
-	'w':  "Whiskey",
-	'x':  "X-ray",
-	'y':  "Yankee",
-	'z':  "Zulu",
-	'0':  "Zero",
-	'1':  "One",
-	'2':  "Two",
-	'3':  "Three",
-	'4':  "Four",
-	'5':  "Five",
-	'6':  "Six",
-	'7':  "Seven",
-	'8':  "Eight",
-	'9':  "Nine",
-	' ':  "Space",
-	'!':  "Exclamation",
-	'"':  "DoubleQuote",
-	'#':  "Hash",
-	'$':  "Dollars",
-	'%':  "Percent",
-	'&':  "Ampersand",
-	'(':  "LeftParens",
-	')':  "RightParens",
-	'*':  "Asterisk",
-	'+':  "Plus",
-	',':  "Comma",
-	'-':  "Dash",
-	'.':  "Period",
-	'/':  "ForeSlash",
-	':':  "Colon",
-	';':  "SemiColon",
-	'<':  "LessThan",
-	'=':  "Equals",
-	'>':  "GreaterThan",
-	'?':  "Question",
-	'@':  "At",
-	'[':  "LeftBracket",
-	'\'': "SingleQuote",
-	'\\': "BackSlash",
-	']':  "RightBracket",
-	'^':  "Caret",
-	'_':  "Underscore",
-	'`':  "Backtick",
-	'{':  "LeftBrace",
-	'|':  "Pipe",
-	'}':  "RightBrace",
-	'~':  "Tilde",
+// An Encoding is a character to code word mapping scheme, defined by a
+// spelling alphabet. The most common is the "NATO" spelling alphabet.
+type Encoding struct {
+	alphabet map[rune]string
 }
+
+// NewEncoding returns a new Encoding defined by the given alphabet, which
+// must a map of rune -> string pairs.
+func NewEncoding(encoder map[rune]string) *Encoding {
+	e := new(Encoding)
+	e.alphabet = encoder
+	return e
+}
+
+// NatoAlphabet is the NATO phonetic alphabet.
+// It is also known as the International Radiotelephony Spelling Alphabet
+// and the ICAO spelling alphabet.
+var NatoAlphabet = NewEncoding(encodeNato)
 
 // codeWordFor returns the spelling alphabet code word for r.
 // If r is not defined in the alphabet, returns r.
-func codeWordFor(r rune) string {
-	word, ok := alphabet[unicode.ToLower(r)]
+func (enc *Encoding) codeWordFor(r rune) string {
+	word, ok := enc.alphabet[unicode.ToLower(r)]
 	if !ok {
 		return string(r)
 	}
@@ -100,20 +46,20 @@ func codeWordFor(r rune) string {
 	return word
 }
 
-func encodeLine(s string) string {
+func (enc *Encoding) encodeLine(s string) string {
 	dst := make([]string, len(s))
 	for index, char := range []rune(s) {
-		dst[index] = codeWordFor(char)
+		dst[index] = enc.codeWordFor(char)
 	}
 	return strings.Join(dst, " ")
 }
 
-// Encode converts a string into its spelling alphabet representation.
-func Encode(s string) string {
+// Encode converts s into its spelling alphabet representation, defined by enc.
+func (enc *Encoding) Encode(s string) string {
 	lines := strings.Split(s, "\n")
 	dst := make([]string, len(lines))
 	for index, line := range lines {
-		dst[index] = encodeLine(line)
+		dst[index] = enc.encodeLine(line)
 	}
 	return strings.Join(dst, "\n")
 }
