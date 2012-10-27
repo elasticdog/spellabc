@@ -24,13 +24,15 @@ func NewEncoding(encoder map[rune]string) *Encoding {
 	return e
 }
 
+// JanAlphabet is the Joint Army/Navy phonetic alphabet.
+var JanAlphabet = NewEncoding(encodeJan)
+
 // NatoAlphabet is the NATO phonetic alphabet.
 // It is also known as the International Radiotelephony Spelling Alphabet
 // and the ICAO spelling alphabet.
 var NatoAlphabet = NewEncoding(encodeNato)
 
-// WesternUnionAlphabet is encoder alphabet for the Western Union phonetic
-// alphabet.
+// WesternUnionAlphabet is the Western Union phonetic alphabet.
 var WesternUnionAlphabet = NewEncoding(encodeWesternUnion)
 
 // codeWordFor returns the spelling alphabet code word for r.

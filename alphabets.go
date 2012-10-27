@@ -6,7 +6,81 @@ package spellalpha
 
 import ()
 
-// encodeNato is encoder alphabet for the NATO phonetic alphabet.
+// encodeJan is an encoder alphabet for the Joint Army/Navy phonetic
+// alphabet.
+var encodeJan = map[rune]string{
+	'a':  "Able",
+	'b':  "Baker",
+	'c':  "Charlie",
+	'd':  "Dog",
+	'e':  "Easy",
+	'f':  "Fox",
+	'g':  "George",
+	'h':  "How",
+	'i':  "Item",
+	'j':  "Jig",
+	'k':  "King",
+	'l':  "Love",
+	'm':  "Mike",
+	'n':  "Nan",
+	'o':  "Oboe",
+	'p':  "Peter",
+	'q':  "Queen",
+	'r':  "Roger",
+	's':  "Sugar",
+	't':  "Tare",
+	'u':  "Uncle",
+	'v':  "Victor",
+	'w':  "William",
+	'x':  "X-ray",
+	'y':  "Yoke",
+	'z':  "Zebra",
+	'0':  "Zero",
+	'1':  "One",
+	'2':  "Two",
+	'3':  "Three",
+	'4':  "Four",
+	'5':  "Five",
+	'6':  "Six",
+	'7':  "Seven",
+	'8':  "Eight",
+	'9':  "Nine",
+	' ':  "Space",
+	'!':  "Exclamation",
+	'"':  "DoubleQuote",
+	'#':  "Hash",
+	'$':  "Dollars",
+	'%':  "Percent",
+	'&':  "Ampersand",
+	'(':  "LeftParens",
+	')':  "RightParens",
+	'*':  "Asterisk",
+	'+':  "Plus",
+	',':  "Comma",
+	'-':  "Dash",
+	'.':  "Period",
+	'/':  "ForeSlash",
+	':':  "Colon",
+	';':  "SemiColon",
+	'<':  "LessThan",
+	'=':  "Equals",
+	'>':  "GreaterThan",
+	'?':  "Question",
+	'@':  "At",
+	'[':  "LeftBracket",
+	'\'': "SingleQuote",
+	'\\': "BackSlash",
+	']':  "RightBracket",
+	'^':  "Caret",
+	'_':  "Underscore",
+	'`':  "Backtick",
+	'{':  "LeftBrace",
+	'|':  "Pipe",
+	'}':  "RightBrace",
+	'~':  "Tilde",
+}
+
+// encodeNato is an encoder alphabet for the NATO phonetic alphabet.
 // It is also known as the International Radiotelephony Spelling Alphabet
 // and the ICAO spelling alphabet.
 var encodeNato = map[rune]string{
@@ -81,8 +155,8 @@ var encodeNato = map[rune]string{
 	'~':  "Tilde",
 }
 
-// encodeWesternUnion is encoder alphabet for the Western Union phonetic
-// alphabet.
+// encodeWesternUnion is an encoder alphabet for the Western Union
+// phonetic alphabet.
 var encodeWesternUnion = map[rune]string{
 	'a':  "Adams",
 	'b':  "Boston",
