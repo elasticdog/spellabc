@@ -37,6 +37,6 @@ func main() {
 		if opt.GetBool("verbose") {
 			fmt.Printf("%s  =  ", input)
 		}
-		spellalpha.PrintPhonetic(input)
+		fmt.Println(spellalpha.Encode(input))
 	}
 }

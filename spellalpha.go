@@ -6,7 +6,6 @@
 package spellalpha
 
 import (
-	"fmt"
 	"strings"
 	"unicode"
 )
@@ -84,31 +83,37 @@ var alphabet = map[rune]string{
 	'~':  "Tilde",
 }
 
-// encode converts a character into its spelling alphabet code word
-// representation (if it is known). For letters, it returns
-// a lowercase/uppercase code word based on the capitalization.
-func encode(char rune) string {
-	word, ok := alphabet[unicode.ToLower(char)]
+// codeWordFor returns the spelling alphabet code word for r.
+// If r is not defined in the alphabet, returns r.
+func codeWordFor(r rune) string {
+	word, ok := alphabet[unicode.ToLower(r)]
 	if !ok {
-		return string(char)
+		return string(r)
 	}
 
-	if unicode.IsLetter(char) {
-		if unicode.IsLower(char) {
-			word = strings.ToLower(word)
-		} else {
-			word = strings.ToUpper(word)
-		}
+	switch {
+	case unicode.IsLower(r):
+		word = strings.ToLower(word)
+	case unicode.IsUpper(r):
+		word = strings.ToUpper(word)
 	}
 	return word
 }
 
-// PrintPhonetic prints the phonetic representation of a string. Spaces
-// are always added between code words and a newline is appended.
-func PrintPhonetic(input string) {
-	runes := []rune(input)
-	for _, char := range runes[:len(runes)-1] {
-		fmt.Printf("%s ", encode(char))
+func encodeLine(s string) string {
+	dst := make([]string, len(s))
+	for index, char := range []rune(s) {
+		dst[index] = codeWordFor(char)
 	}
-	fmt.Printf("%s\n", encode(runes[len(runes)-1]))
+	return strings.Join(dst, " ")
+}
+
+// Encode converts a string into its spelling alphabet representation.
+func Encode(s string) string {
+	lines := strings.Split(s, "\n")
+	dst := make([]string, len(lines))
+	for index, line := range lines {
+		dst[index] = encodeLine(line)
+	}
+	return strings.Join(dst, "\n")
 }
