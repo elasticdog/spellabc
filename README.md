@@ -15,8 +15,12 @@ Usage
 
     Usage: spellout [OPTIONS] STRING...
 
-      -v, --verbose  include input characters along with output
-      -h, --help     display this help message
+    Available alphabets include JAN (Joint Army/Navy), LAPD, NATO,
+    WesternUnion, and UsFinancial.
+
+      -a, --alphabet=  alphabet output is encoded in [NATO]
+      -v, --verbose    include input characters along with output
+      -h, --help       display this help message
 
 Each string will have its output printed on a separate line, and spellout
 will honor using `--` to stop interpreting the subsequent arguments as
@@ -27,6 +31,9 @@ Examples
 
     $ spellout Example123
     ECHO x-ray alpha mike papa lima echo One Two Three
+
+    $ spellout --alphabet UsFinancial Example123
+    EDDIE xavier adam mary peter larry eddie One Two Three
 
     $ spellout --verbose Aaron "Bull Schaefer"
     Aaron  =  ALPHA alpha romeo oscar november
