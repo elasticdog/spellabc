@@ -35,18 +35,18 @@ func main() {
 		spec.PrintUsageAndExit("")
 	}
 
-	var abc spellalpha.Encoding
+	var abc *spellalpha.Encoding
 	switch strings.ToLower(opt.Get("alphabet")) {
 	case "jan":
-		abc = *spellalpha.JanAlphabet
+		abc = spellalpha.JanAlphabet
 	case "lapd":
-		abc = *spellalpha.LapdAlphabet
+		abc = spellalpha.LapdAlphabet
 	case "nato":
-		abc = *spellalpha.NatoAlphabet
+		abc = spellalpha.NatoAlphabet
 	case "westernunion":
-		abc = *spellalpha.WesternUnionAlphabet
+		abc = spellalpha.WesternUnionAlphabet
 	case "usfinancial":
-		abc = *spellalpha.UsFinancialAlphabet
+		abc = spellalpha.UsFinancialAlphabet
 	default:
 		spec.PrintUsageAndExit("Unknown alphabet: " + opt.Get("alphabet"))
 	}
