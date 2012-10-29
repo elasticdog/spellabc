@@ -1,14 +1,20 @@
-spellabc.go
-===========
+spellabc.go & spellout
+======================
 
-A command-line utility (written in [GoLang](http://golang.org/)) for
-converting characters into their equivalent NATO [spelling
-alphabet](https://en.wikipedia.org/wiki/Spelling_alphabet) code words.
-Useful for when you have to spell things out over the phone.
+spellabc.go is a [GoLang](http://golang.org/) package for converting
+strings into their equivalent
+[spelling alphabet](https://en.wikipedia.org/wiki/Spelling_alphabet)
+(a.k.a. phonetic alphabet) code word representation. Useful for oral
+communication (e.g., spelling things out over the phone), the package
+supports a number of common alphabets as well as the ability to use of
+custom encodings.
 
-spellabc will currently handle ASCII printable characters, and for
-letters, will return a lowercase/uppercase code word based on the
-capitalization. Unknown characters are simply returned without conversion.
+For characters classified as letters, spellabc will return
+a lowercase/uppercase code word based on the capitalization. Unknown
+characters are simply returned without conversion.
+
+`spellout` is an included command-line utility (also written in Go) that
+serves as an example application of the spellabc package.
 
 Usage
 =====
@@ -68,14 +74,22 @@ Build Instructions
 
 Assuming that you already have Go installed, have set a proper `$GOROOT`
 environment variable, and are inside of a workspace defined in your
-`$GOPATH`, you can just use Go itself to download and build the `spellout`
-binary:
+`$GOPATH`, you can just use Go itself to download and build the spellabc
+package:
+
+    $ go get github.com/elasticdog/spellabc
+
+Then import the package in your source file as usual:
+
+    import "github.com/elasticdog/spellabc"
+
+Likewise, to build the `spellout` binary:
 
     $ go get github.com/elasticdog/spellabc/spellout
 
-Then you can move/copy the `spellout` binary file to wherever you like:
+Then feel free to move/copy the `spellout` binary file to wherever you like:
 
-    $ cp ./bin/spellout /usr/local/bin/spellout
+    $ cp $GOPATH/bin/spellout /usr/local/bin/spellout
 
 Credits
 =======
