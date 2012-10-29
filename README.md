@@ -6,8 +6,8 @@ strings into their equivalent
 [spelling alphabet](https://en.wikipedia.org/wiki/Spelling_alphabet)
 (a.k.a. phonetic alphabet) code word representation. Useful for oral
 communication (e.g., spelling things out over the phone), the package
-supports a number of common alphabets as well as the ability to use of
-custom encodings.
+supports a number of common alphabets as well as the ability to use custom
+encodings.
 
 For characters classified as letters, spellabc will return
 a lowercase/uppercase code word based on the capitalization. Unknown
