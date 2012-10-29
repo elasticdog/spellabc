@@ -16,8 +16,7 @@ type Encoding struct {
 	alphabet map[rune]string
 }
 
-// NewEncoding returns a new Encoding defined by the given alphabet, which
-// must a map of rune -> string pairs.
+// NewEncoding returns a new Encoding defined by the given alphabet.
 func NewEncoding(encoder map[rune]string) *Encoding {
 	e := new(Encoding)
 	e.alphabet = encoder
