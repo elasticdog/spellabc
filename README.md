@@ -81,7 +81,9 @@ package:
 
 Then import the package in your source file as usual:
 
-    import "github.com/elasticdog/spellabc"
+    import (
+    	"github.com/elasticdog/spellabc"
+    )
 
 Likewise, to build the `spellout` binary:
 
@@ -96,7 +98,7 @@ Credits
 
 spellabc was inspired by the output from the no-longer-in-existence
 [WinGuides Secure Password Generator](http://www.winguides.com/security/password.php)
-that disappeared back in Jan 2007, and the similarly inspired
+that disappeared back in January 2007, and the similarly inspired
 [Lingua::Alphabet::Phonetic::Password](http://search.cpan.org/~jfitz/Lingua-Alphabet-Phonetic-Password-0.11/lib/Lingua/Alphabet/Phonetic/Password.pm)
 Perl module written by James FitzGibbon.
 
