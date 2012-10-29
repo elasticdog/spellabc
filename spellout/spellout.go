@@ -6,7 +6,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/elasticdog/spellalpha"
+	"github.com/elasticdog/spellabc"
 	"github.com/gaal/go-options/options"
 	"os"
 	"strings"
@@ -35,18 +35,18 @@ func main() {
 		spec.PrintUsageAndExit("")
 	}
 
-	var abc *spellalpha.Encoding
+	var abc *spellabc.Encoding
 	switch strings.ToLower(opt.Get("alphabet")) {
 	case "jan":
-		abc = spellalpha.JanAlphabet
+		abc = spellabc.JanAlphabet
 	case "lapd":
-		abc = spellalpha.LapdAlphabet
+		abc = spellabc.LapdAlphabet
 	case "nato":
-		abc = spellalpha.NatoAlphabet
+		abc = spellabc.NatoAlphabet
 	case "westernunion":
-		abc = spellalpha.WesternUnionAlphabet
+		abc = spellabc.WesternUnionAlphabet
 	case "usfinancial":
-		abc = spellalpha.UsFinancialAlphabet
+		abc = spellabc.UsFinancialAlphabet
 	default:
 		spec.PrintUsageAndExit("Unknown alphabet: " + opt.Get("alphabet"))
 	}

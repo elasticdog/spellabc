@@ -2,7 +2,7 @@
 // This source code is provided under the terms of the MIT License
 // that can be be found in the LICENSE file.
 
-package spellalpha
+package spellabc
 
 import (
 	"testing"

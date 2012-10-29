@@ -1,12 +1,12 @@
-spellalpha
-==========
+spellabc.go
+===========
 
 A command-line utility (written in [GoLang](http://golang.org/)) for
 converting characters into their equivalent NATO [spelling
 alphabet](https://en.wikipedia.org/wiki/Spelling_alphabet) code words.
 Useful for when you have to spell things out over the phone.
 
-spellalpha will currently handle ASCII printable characters, and for
+spellabc will currently handle ASCII printable characters, and for
 letters, will return a lowercase/uppercase code word based on the
 capitalization. Unknown characters are simply returned without conversion.
 
@@ -71,7 +71,7 @@ environment variable, and are inside of a workspace defined in your
 `$GOPATH`, you can just use Go itself to download and build the `spellout`
 binary:
 
-    $ go get github.com/elasticdog/spellalpha/spellout
+    $ go get github.com/elasticdog/spellabc/spellout
 
 Then you can move/copy the `spellout` binary file to wherever you like:
 
@@ -80,7 +80,7 @@ Then you can move/copy the `spellout` binary file to wherever you like:
 Credits
 =======
 
-spellalpha was inspired by the output from the no-longer-in-existence
+spellabc was inspired by the output from the no-longer-in-existence
 [WinGuides Secure Password Generator](http://www.winguides.com/security/password.php)
 that disappeared back in Jan 2007, and the similarly inspired
 [Lingua::Alphabet::Phonetic::Password](http://search.cpan.org/~jfitz/Lingua-Alphabet-Phonetic-Password-0.11/lib/Lingua/Alphabet/Phonetic/Password.pm)
@@ -89,7 +89,7 @@ Perl module written by James FitzGibbon.
 License
 =======
 
-spellalpha is provided under the terms of the
+spellabc is provided under the terms of the
 [MIT License](http://www.opensource.org/licenses/MIT).
 
 Copyright &copy; 2012 [Aaron Bull Schaefer](mailto:aaron@elasticdog.com)

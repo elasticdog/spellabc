@@ -2,8 +2,8 @@
 // This source code is provided under the terms of the MIT License
 // that can be be found in the LICENSE file.
 
-// Package spellalpha implements spelling alphabet code word encoding.
-package spellalpha
+// Package spellabc implements spelling alphabet code word encoding.
+package spellabc
 
 import (
 	"strings"
